@@ -5,8 +5,8 @@ import fuelTruck from './fuelTruck.jpg';
 import './App.css';
 
 const homeContent = (
-    <div>
-        <img className="home-picture" src={fuelTruck} alt="Fuel truck" />
+    <div id="textBox">
+        {/*   <img id="fuelTruck" className="home-picture" src={fuelTruck} alt="Fuel truck" /> */}
         <p>
             Welcome to the fuel price assistant built in react!
             <br />

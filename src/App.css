@@ -73,3 +73,7 @@ p {
     width: 75%;
     margin: auto;
 }
+
+#textBox {
+    margin-top: 20px;
+}
