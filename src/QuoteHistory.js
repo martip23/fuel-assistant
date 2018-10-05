@@ -1,7 +1,7 @@
 import Quote from "./Quote";
 
 class QuoteHistory {
-    let QuoteHistory;
+    QuoteHistory;
 
     addQuote(value) {
         QuoteHistory.push(value);
