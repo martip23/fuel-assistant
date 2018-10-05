@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
 import ReactDOM from "react-dom";
 import logo from './logo.svg';
-import fuelTruck from './fuelTruck.jpg';
+import ClientInfo from './ClientInformation';
 import './App.css';
+
+let clientInfo1 = ClientInfo;
+clientInfo1.clientID = 123456;
+clientInfo1.name = "Tom Tomlinson";
+clientInfo1.address = "4320 S Congress Ave Austin, TX 78745";
+clientInfo1.phone = "210-502-9459";
+clientInfo1.email = "patrickmartinez@txstate.edu";
+
 
 const homeContent = (
     <div id="textBox">
-        {/*   <img id="fuelTruck" className="home-picture" src={fuelTruck} alt="Fuel truck" /> */}
         <p>
             Welcome to the fuel price assistant built in react!
             <br />
@@ -31,15 +38,108 @@ const homeContent = (
 );
 
 const clientContent = (
-    <b>CLIENT LIST</b>
+    <div className="clientContentWrapper">
+        <div id="textBox">
+            <h1>Client Info</h1>
+            <div className="InfoForm form-group row">
+                <label htmlFor="staticName" className="col-sm-2 col-form-label">Name: </label>
+                <div className="col-sm-10">
+                    <input type="text" readOnly className="form-control-plaintext" id="staticName"
+                           value={clientInfo1.name}/>
+                </div>
+            </div>
+            <div className="InfoForm form-group row">
+                <label htmlFor="staticAddr" className="col-sm-2 col-form-label">Address: </label>
+                <div className="col-sm-10">
+                    <input type="text" readOnly className="form-control-plaintext" id="staticAddr"
+                           value={clientInfo1.address}/>
+                </div>
+            </div>
+            <div className="InfoForm form-group row">
+                <label For="staticPhone" className="col-sm-2 col-form-label">Phone: </label>
+                <div className="col-sm-10">
+                    <input type="text" readOnly className="form-control-plaintext" id="staticPhone"
+                           value={clientInfo1.phone}/>
+                </div>
+            </div>
+            <div className="InfoForm form-group row">
+                <label htmlFor="staticEmail" className="col-sm-2 col-form-label">Email: </label>
+                <div className="col-sm-10">
+                    <input type="text" readOnly className="form-control-plaintext" id="staticEmail"
+                           value={clientInfo1.email}/>
+                </div>
+            </div>
+
+        </div>
+    </div>
 );
 
 const requestContent = (
-    <b>REQUEST FORM</b>
+    <div className="requestContentWrapper">
+        <div id="textBox">
+            <h1>Request Quote</h1>
+            <form>
+                <div className="form-group">
+                    <label for="gallonRequest">Gallons Requested: </label>
+                    <input type="gallon" className="form-control" id="gallonRequest" placeholder="Enter in US Gal"/>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="deliveryDate">Delivery Date:: </label>
+                    <input type="date" className="form-control" id="deliveryDate" placeholder="MM/DD/YY"/>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="deliveryLoc">Delivery Location: </label>
+                    <input type="address" className="form-control" id="deliveryLoc" placeholder="Enter full address"/>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="deliveryContactName">Delivery Contact Person Name: </label>
+                    <input type="name" className="form-control" id="deliveryContactName" placeholder="Enter Name"/>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="deliveryContactPhone">Delivery Contact Person Phone: </label>
+                    <input type="phoneNumber" className="form-control" id="deliveryContactPhone" placeholder="000-000-0000"/>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="deliveryContactEmail">Delivery Contact Person Email: </label>
+                    <input type="email" className="form-control" id="deliveryContactEmail" placeholder="email@email.com"/>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="suggestedPrice">Suggested Price per Gallon: </label>
+                    <input type="money" className="form-control" id="suggestedPrice" placeholder="Enter in US dollars w/ cents"/>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="totalAmtDue">Total Amount Due: </label>
+                    <input type="money" className="form-control" id="totalAmtDue" placeholder="$0.00"/>
+                </div>
+            </form>
+        </div>
+    </div>
 );
 
 const historyContent = (
-    <b>PRICE HISTORY</b>
+    <div>
+        <h1>Quote History</h1>
+        <table className="table table-hover">
+            <thead>
+            <th scope = "col">Item #</th>
+            <th scope = "col">Request Date</th>
+            <th scope = "col">Delivery Date</th>
+            <th scope = "col">Gallons</th>
+            <th scope = "col">Rate</th>
+            <th scope = "col">Total Price</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td scope="row">123456</td>
+                    <td>12/30/1999</td>
+                    <td>01/01/2000</td>
+                    <td>25,000 gal</td>
+                    <td>$3.25/gal</td>
+                    <td>${3.25 * 25000}.00</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 );
 
 function clientClick() {
@@ -95,7 +195,7 @@ class App extends Component {
                 {content}
             </div>
         </div>
-          <footer className = "App-footer" class="footer fixed-bottom">
+          <footer className = "App-footer" className="footer fixed-bottom">
               Created in ReactJS by Patrick Martinez and Edwin Matthew 2018
           </footer>
       </div>

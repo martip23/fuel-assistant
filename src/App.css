@@ -77,3 +77,12 @@ p {
 #textBox {
     margin-top: 20px;
 }
+
+.table thead th {
+    border-style: solid;
+    padding: 10px 20px 20px;
+}
+
+.table tbody td {
+    border-style: solid;
+}
